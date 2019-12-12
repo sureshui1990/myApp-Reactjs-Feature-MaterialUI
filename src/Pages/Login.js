@@ -16,14 +16,20 @@ const Login = (props) => {
                 <Input 
                 autoFocus={true}
                 color="primary"
-                defaultValue="Username"
+                placeholder="Username"
+                required={true}
+                type='text'
                 />
                     
             </div>
             <div>
-                <label> 
-                    <input type="text" placeholder="Password" />
-                </label>
+            <Input 
+                autoFocus={true}
+                color="primary"
+                placeholder="Password"
+                required={true}
+                type='password'
+                />
             </div>
 
             <Button type="button"

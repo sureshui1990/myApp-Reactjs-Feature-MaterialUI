@@ -15,6 +15,7 @@ import Login from './Login';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import Dashboard from './Dashboard';
+import CategoryChoose from './CategoryChoose';
 
 export default () => {
         return (
@@ -39,6 +40,7 @@ export default () => {
                                 <li className="p-1 mx-2">
                                     <Link to="/dashboard">Dashboard</Link>
                                 </li>
+
                             </ul>
 
                         </nav>
