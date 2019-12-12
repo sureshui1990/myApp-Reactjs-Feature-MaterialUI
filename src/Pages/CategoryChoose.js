@@ -39,42 +39,39 @@ export default class CategoryChoose extends Component {
         super(props)
     
         this.state = {
-            items:[],
-            isLoaded: false,
+            persons:[],
+            isLoading: false,
         }
     }
 
     componentDidMount() {
-        
+        this.setState({isLoading: true } , () => this.GetUserDetailsByApi())
+            
+    }
+    GetUserDetailsByApi = () => {
         axios.get( 'https://jsonplaceholder.typicode.com/users')
-        .then(res => {
-            this.setState({isLoaded: true});
-            const persons = res.data;
-            this.setState({ items: persons });
-            this.setState({isLoaded: false});
-          }).catch( err => console.log('err',err));
-                
+        .then(response => {
+            const persons = response.data;
+            this.setState({ persons,isLoading: false });
+          }).catch( err => console.log('err',err));    
     }
 
-
-    
-
     render() {
-        const {isLoaded, items} = this.state;
+        const { isLoading, persons} = this.state;
         console.log('this.state',this.state);
 
 
-
-        if(isLoaded) {
+        if(isLoading) {
             return (
                 <div> Loading... </div>
             )
         }
+
         return (
             <div>
                 <h2>CategoryChoose</h2>
 
-                <SelectDropdown user={items} />
+                <SelectDropdown user={persons} />
                 
             </div>
         )
